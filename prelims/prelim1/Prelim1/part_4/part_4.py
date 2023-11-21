@@ -15,14 +15,21 @@ def part_4(text: str):
     Returns:
         list[str]: The cascade separated by level.
     """
-    cascade = []
+
     ### You code goes here ###
     ### Votre code va ici ###
-    
-    
 
+    words = text.split()
+    # TODO: what if last character is not alpha? (ex: !, ?, .)    
+    longest_length = max(map(lambda word: len(word), words))
+    words = map(lambda word: word.ljust(longest_length), words)
+    rows = [" " * row for row in range(longest_length)]
+    for word in words:
+        for idx, char in enumerate(word):
+            rows[idx] += char + " "
+    cascade = map(lambda row: row[0:-1], rows)
 
-    return cascade
+    return list(cascade)
 
 # To help you visualize your cascade
 # Pour vous aider à visualiser votre cascade
