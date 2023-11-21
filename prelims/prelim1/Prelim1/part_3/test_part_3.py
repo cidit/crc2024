@@ -7,21 +7,21 @@
 from part_3 import part_3
 
 def test_from_problem_description():
-    assert part_3("chien le chat maison voiture message arbre secret soleil fleurs \
-                  musique rive montagne est ordinateur plage le cell lune livre mer secret \
-                  ceci restaurant amis le voyage chanson bateau hiver automne neige amour \
-                  sport bonheur le art danse message avion jardin livre parc est cadeau table \
-                  chapeau porte lunettes secret chemin message commande fort pont or argent \
-                  fourchette message couteau tasse montre chapeau guitare le piano balance le \
-                  nuage parapluie est balle chocolat ceci message chaussettes radio silence plume \
-                  pinceau secret tableau nuage le bougie chemin miroir porte montre papier le \
-                  lampe sac message bonjour le sable") == "le message secret est ceci"
+    assert part_3("chien le chat maison voiture message arbre secret soleil fleurs "\
+                  "musique rive montagne est ordinateur ceci plage le cell lune livre mer secret "\
+                  "ceci restaurant amis le voyage chanson le bateau hiver automne neige amour "\
+                  "sport bonheur le art danse message avion jardin livre parc est cadeau table "\
+                  "chapeau porte lunettes message secret chemin message commande fort pont or argent "\
+                  "fourchette message couteau tasse montre chapeau guitare le piano balance le "\
+                  "nuage parapluie est balle secret chocolat ceci message est chaussettes radio silence plume "\
+                  "pinceau secret tableau nuage le bougie chemin miroir porte montre papier le "\
+                  "lampe sac message bonjour le sable") == "le message secret est ceci"
     
-    assert part_3("chocolat la pluie est la plage est pomme la sapin la musique fun vraiment \
-                  ordinateur prog prog cauchemar la montagne bonjour arbre prog amour livre \
-                  vraiment prog couleur danse guitare voyage chanson est horizon fleur fun prog \
-                  livre lune ballon vraiment ami prince la plume prog vent porte la table \
-                  aventure la neige est chaussure histoire bateau") == "la prog est vraiment fun"
+    assert part_3("chocolat la pluie est la plage est pomme la sapin la musique fun vraiment "\
+                  "ordinateur prog prog cauchemar la montagne bonjour arbre prog amour livre "\
+                  "vraiment prog couleur danse guitare voyage chanson est horizon fleur fun prog "\
+                  "livre lune ballon vraiment ami prince la plume prog vent porte la table "\
+                  "aventure la neige est chaussure histoire bateau") == "la prog est vraiment fun"
 
 def test_simple():
     assert part_3("This is a simple test This is a simple This is a This is This") == "This is a simple test"
