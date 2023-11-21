@@ -1,3 +1,8 @@
+import math
+import random
+import curses
+import sys
+from types import prepare_class
 # For your imports look at the rulebook to see what is allowed
 # Pour les import permis allez vous référer au livre des règlements
 """part_5.py
@@ -32,3 +37,22 @@ def part_5(text: str):
 # print(part_5('voici un petit texte test')) 
 # # Expected output: ???
 
+def main(stdscr: curses.window):
+    if len(sys.argv) < 2:
+        return
+    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    text = sys.argv[1].upper()
+    iterations = len(text) * 5
+
+    while True:
+        stdscr.clear()
+        curr_letter = math.floor(iterations/len(text))
+        toprint = text[0:curr_letter]
+        toprint += "".join(random.choice(alphabet) for n in range(len(text) - curr_letter))
+        stdscr.addstr(toprint)
+        stdscr.refresh()
+        curses.napms(20)
+        iterations += 1
+
+if __name__ == "__main__":
+    curses.wrapper(main)

@@ -20,7 +20,7 @@ def part_4(text: str):
     ### Votre code va ici ###
 
     words = text.split()
-    # TODO: what if last character is not alpha? (ex: !, ?, .)    
+    # TODO: what if last character is not alpha? (ex: !, ?, .) should be considered a word of its own.
     longest_length = max(map(lambda word: len(word), words))
     words = map(lambda word: word.ljust(longest_length), words)
     rows = [" " * row for row in range(longest_length)]
@@ -28,7 +28,6 @@ def part_4(text: str):
         for idx, char in enumerate(word):
             rows[idx] += char + " "
     cascade = map(lambda row: row[0:-1], rows)
-
     return list(cascade)
 
 # To help you visualize your cascade
