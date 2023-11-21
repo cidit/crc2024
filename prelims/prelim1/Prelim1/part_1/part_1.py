@@ -5,6 +5,7 @@ This is the template file for the part 1 of the Prelim 1.
 Ceci est le fichier template pour la partie 1 du Prelim 1.
 """
 
+
 def part_1(text: str) -> int:
     """
     Finds the secret number hidden in the text.
@@ -15,11 +16,18 @@ def part_1(text: str) -> int:
     Returns:
         int: The number hidden in the text.
     """
-    x = text.split("|")
-    y = x[1].split("|")
-    secret_number = int(y[0])  
-
-    return secret_number
+    ### You code goes here ###
+    ### Votre code va ici ###
+    start = text.find("|")
+    end = text.rfind("|")
+    if start == -1 or end == -1:
+        return -1
+    # start +1 because we dont want this to be an inclusive range
+    str_number = text[start + 1 : end]
+    try:
+        return int(str_number)
+    except ValueError:
+        return -1
 
 
 # Uncomment the following print to test your function without pytest
