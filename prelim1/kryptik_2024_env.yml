@@ -1,0 +1,15 @@
+name: kryptik_2024_env
+channels:
+  - conda-forge
+  - defaults
+  - anaconda
+dependencies:
+  - python=3.10
+  - pytest=7.4.0
+  - jax=0.4.19
+  - numpy=1.26.0
+  - requests=2.31.0
+  - matplotlib=3.8.0
+  - regex=2023.10.3
+  - seaborn=0.12.2
+  - pandas=2.1.1
