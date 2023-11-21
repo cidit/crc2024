@@ -8,7 +8,7 @@
 #define TXD2 4
 
 #define TRANSFER_SIZE 6
-const uint8_t serialDelay = 100; // Delay in ms between each serial instruction packet sent
+const uint8_t serialDelay = 50; // Delay in ms between each serial instruction packet sent
 
 typedef union {
   struct {

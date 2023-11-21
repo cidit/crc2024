@@ -10,11 +10,11 @@
 #define PIN_Motor_STBY 3
 
 // Controler settings
-#define JOYSTICK_MAX_VALUE 127
+#define JOYSTICK_MAX_VALUE 128
 #define JOYSTICK_DEADZONE 10  // Defines the deadzone where the control input gets ignored
 #define TRIGGER_DEADZONE 20
-#define MOTOR_MIN_VALUE 0
-#define MOTOR_MAX_VALUE 200
+#define MOTOR_MIN_VALUE 10
+#define MOTOR_MAX_VALUE 180
 
 
 #define TRANSFER_SIZE 6
@@ -107,7 +107,6 @@ void manageInputs(void) {
     // Rotation speed depends on the difference between the inputs. Divided by 2 to prevent from spinning too fast.
     speedA = speedB = abs(ps4commands.L2 - ps4commands.R2) / 2;
   } else {  // If triggers arent pressed, read joystick
-
     // First check if the joystick is not in neutral position
     if (abs(ps4commands.lStickY) > JOYSTICK_DEADZONE || abs(ps4commands.lStickX) > JOYSTICK_DEADZONE) {
       // Then check which direction the robot is moving
@@ -118,6 +117,7 @@ void manageInputs(void) {
       }
       // Calculate the lenght of the vector
       uint8_t maxSpeed = sqrt(pow(ps4commands.lStickX, 2) + pow(ps4commands.lStickY, 2));
+      // Scale the value to match motor inputs
       maxSpeed = map(maxSpeed, JOYSTICK_DEADZONE, JOYSTICK_MAX_VALUE, MOTOR_MIN_VALUE, MOTOR_MAX_VALUE);
       // Calculate the angle
       double angle = atan(abs(ps4commands.lStickX)/abs(ps4commands.lStickY));
