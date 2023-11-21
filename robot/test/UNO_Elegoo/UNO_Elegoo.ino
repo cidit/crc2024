@@ -11,20 +11,22 @@
 
 // Controler settings
 #define JOYSTICK_MAX_VALUE 127
-#define JOYSTICK_DEADZONE 9  // Defines the deadzone where the joystick's input gets ignored
+#define JOYSTICK_DEADZONE 10  // Defines the deadzone where the control input gets ignored
+#define TRIGGER_DEADZONE 20
 #define MOTOR_MIN_VALUE 0
-#define MOTOR_MAX_VALUE 255
-#define MIN_TURN_RATE 75
-#define MAX_TURN_RATE 100
+#define MOTOR_MAX_VALUE 200
 
-#define TRANSFER_SIZE 4
+
+#define TRANSFER_SIZE 6
 typedef union {
   struct {
-    int8_t lStickX;           // 1 octets
-    int8_t lStickY;           // 1 octet
-    int8_t rStickX;           // 1 octets
-    int8_t rStickY;           // 1 octets
-  } __attribute__((packed));  // Total : 4 octets
+    int8_t lStickX;           // 1 byte
+    int8_t lStickY;           // 1 byte
+    int8_t rStickX;           // 1 byte
+    int8_t rStickY;           // 1 byte
+    uint8_t L2;               // 1 byte
+    uint8_t R2;               // 1 byte
+  } __attribute__((packed));  // Total : 6 bytes
   uint8_t byteArray[TRANSFER_SIZE];
 } dataStruct;
 dataStruct ps4commands;
@@ -94,41 +96,41 @@ void moveWheels(boolean direction_A, uint8_t speed_A,  //Group A motor parameter
 void manageInputs(void) {
   bool dirA = true, dirB = true, enabMotor = true;
   uint8_t speedA = 0, speedB = 0;
-  // First check the Y deadzone
-  if (abs(ps4commands.lStickY) < JOYSTICK_DEADZONE) {
-    // Then check the X deadzone
-    if (abs(ps4commands.lStickX) < JOYSTICK_DEADZONE) {
-      // Turn off motors if the joystick is in rest position
-      enabMotor = false;
-    } else {
-      // If joystick is pushed sideways, the wheels go in opposition direction
-      if (ps4commands.lStickX < 0) {
-        // Joystick is pushed to the left
-        dirA = true;
-        dirB = false;
-      } else {
-        // Joystick is pushed to the right
-        dirA = false;
-        dirB = true;
-      }
-      speedA = speedB = map(abs(ps4commands.lStickX), JOYSTICK_DEADZONE, JOYSTICK_MAX_VALUE, MOTOR_MIN_VALUE, MOTOR_MAX_VALUE);
-    }
-  } else {  // Otherwise, the wheels are moving in the same direction
-    // Reverse motors if joystick is pushed backwards
-    if (ps4commands.lStickY < 0) {
-      dirA = false;
+  // Overide the Joystick inputs if triggers are pressed
+  if (ps4commands.L2 > TRIGGER_DEADZONE || ps4commands.R2 > TRIGGER_DEADZONE) {
+    // Inverse the wheel directions depending on highest input
+    if (ps4commands.L2 > ps4commands.R2) {
       dirB = false;
-    }  // IF joystick is pushed vertically
-    speedA = speedB = map(abs(ps4commands.lStickY), JOYSTICK_DEADZONE, JOYSTICK_MAX_VALUE, MOTOR_MIN_VALUE, MOTOR_MAX_VALUE);
-    // IF joystick is pushed vertically only, leave the wheel speeds untouched
-    if (abs(ps4commands.lStickX) > JOYSTICK_DEADZONE) {
-      // If not then adjust the speed of one of the wheels
-      uint8_t turnRate = map(abs(ps4commands.lStickX), JOYSTICK_DEADZONE, JOYSTICK_MAX_VALUE, MIN_TURN_RATE, MAX_TURN_RATE);
-      if (ps4commands.lStickX < 0) {
-        speedB *= (MAX_TURN_RATE - turnRate) / MAX_TURN_RATE;
-      } else {
-        speedA *= (MAX_TURN_RATE - turnRate) / MAX_TURN_RATE;
+    } else {
+      dirA = false;
+    }
+    // Rotation speed depends on the difference between the inputs. Divided by 2 to prevent from spinning too fast.
+    speedA = speedB = abs(ps4commands.L2 - ps4commands.R2) / 2;
+  } else {  // If triggers arent pressed, read joystick
+
+    // First check if the joystick is not in neutral position
+    if (abs(ps4commands.lStickY) > JOYSTICK_DEADZONE || abs(ps4commands.lStickX) > JOYSTICK_DEADZONE) {
+      // Then check which direction the robot is moving
+      if (ps4commands.lStickY < 0) {
+        // Reverse engines for negative values
+        dirA = false;
+        dirB = false;
       }
+      // Calculate the lenght of the vector
+      uint8_t maxSpeed = sqrt(pow(ps4commands.lStickX, 2) + pow(ps4commands.lStickY, 2));
+      maxSpeed = map(maxSpeed, JOYSTICK_DEADZONE, JOYSTICK_MAX_VALUE, MOTOR_MIN_VALUE, MOTOR_MAX_VALUE);
+      // Calculate the angle
+      double angle = atan(abs(ps4commands.lStickX)/abs(ps4commands.lStickY));
+      // If the joystick is tilted left, the left wheels moves slower
+      if (ps4commands.lStickX < 0) {
+        speedA = maxSpeed;
+        speedB = cos(angle) * maxSpeed;
+      } else { // If not then the right wheels spins slower
+        speedA = cos(angle) * maxSpeed;
+        speedB = maxSpeed;
+      } 
+    } else {  // If the joystick is in neutral position, shutdown the engines
+      enabMotor = false;
     }
   }
   // Apply output to motors

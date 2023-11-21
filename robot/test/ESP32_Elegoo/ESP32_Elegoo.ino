@@ -7,16 +7,18 @@
 #define RXD2 33
 #define TXD2 4
 
-#define TRANSFER_SIZE 4
-const uint8_t serialDelay = 200; // Delay in ms between each serial instruction packet sent
+#define TRANSFER_SIZE 6
+const uint8_t serialDelay = 100; // Delay in ms between each serial instruction packet sent
 
 typedef union {
   struct {
-    int8_t lStickX;           // 1 octets
-    int8_t lStickY;           // 1 octet
-    int8_t rStickX;           // 1 octets
-    int8_t rStickY;           // 1 octets
-  } __attribute__((packed));  // Total : 4 octets
+    int8_t lStickX;           // 1 byte
+    int8_t lStickY;           // 1 byte
+    int8_t rStickX;           // 1 byte
+    int8_t rStickY;           // 1 byte
+    uint8_t L2;               // 1 byte
+    uint8_t R2;               // 1 byte
+  } __attribute__((packed));  // Total : 6 bytes
   uint8_t byteArray[TRANSFER_SIZE];
 } dataStruct;
 dataStruct ps4commands;
@@ -35,6 +37,8 @@ void notify() {
   ps4commands.lStickY = PS4.LStickY();
   ps4commands.rStickX = PS4.RStickX();
   ps4commands.rStickY = PS4.RStickY();
+  ps4commands.L2 = PS4.L2Value();
+  ps4commands.R2 = PS4.R2Value();
 }
 
 void onDisConnect() {
