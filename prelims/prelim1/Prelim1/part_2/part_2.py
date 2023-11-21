@@ -1,3 +1,4 @@
+import functools
 # For your imports look at the rulebook to see what is allowed
 # Pour les import permis allez vous référer au livre des règlements
 """part_2.py
@@ -22,12 +23,12 @@ def part_2(text: str, key: int) -> str:
     ### Votre code va ici ###
 
     def over_under_flow(num: int, min: int, max: int) -> int:
-        # ex: min 5, max 50, num 199
         diff = max - min
         zeroed_num = num - min
         new_num = zeroed_num % diff
         return new_num + min
 
+    @functools.cache
     def map_char(char: str, key: int):
         alphabet = (
             "abcdefghijklmnopqrstuvwxyz"
