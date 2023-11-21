@@ -9,7 +9,13 @@
 #define PIN_Motor_AIN_1 7
 #define PIN_Motor_STBY 3
 
-#define JOYSTICK_DRIFT 10
+// Controler settings
+#define JOYSTICK_MAX_VALUE 127
+#define JOYSTICK_DEADZONE 9  // Defines the deadzone where the joystick's input gets ignored
+#define MOTOR_MIN_VALUE 0
+#define MOTOR_MAX_VALUE 255
+#define MIN_TURN_RATE 75
+#define MAX_TURN_RATE 100
 
 #define TRANSFER_SIZE 4
 typedef union {
@@ -23,9 +29,9 @@ typedef union {
 } dataStruct;
 dataStruct ps4commands;
 
-// Function stolen from Elegoo's code
-void moveWheels(boolean direction_A, uint8_t speed_A,  //Group A motor parameters
-                boolean direction_B, uint8_t speed_B,  //Group B motor parameters
+// Function stolen from Elegoo's code, controls the motors
+void moveWheels(boolean direction_A, uint8_t speed_A,  //Group A motor parameters (right)
+                boolean direction_B, uint8_t speed_B,  //Group B motor parameters (left)
                 boolean controlED                      //AB enable setting (true)
                 )                                      //Motor control
 {
@@ -84,6 +90,50 @@ void moveWheels(boolean direction_A, uint8_t speed_A,  //Group A motor parameter
   }
 }
 
+// Manage the input on the motors according to the joystick position
+void manageInputs(void) {
+  bool dirA = true, dirB = true, enabMotor = true;
+  uint8_t speedA = 0, speedB = 0;
+  // First check the Y deadzone
+  if (abs(ps4commands.lStickY) < JOYSTICK_DEADZONE) {
+    // Then check the X deadzone
+    if (abs(ps4commands.lStickX) < JOYSTICK_DEADZONE) {
+      // Turn off motors if the joystick is in rest position
+      enabMotor = false;
+    } else {
+      // If joystick is pushed sideways, the wheels go in opposition direction
+      if (ps4commands.lStickX < 0) {
+        // Joystick is pushed to the left
+        dirA = true;
+        dirB = false;
+      } else {
+        // Joystick is pushed to the right
+        dirA = false;
+        dirB = true;
+      }
+      speedA = speedB = map(abs(ps4commands.lStickX), JOYSTICK_DEADZONE, JOYSTICK_MAX_VALUE, MOTOR_MIN_VALUE, MOTOR_MAX_VALUE);
+    }
+  } else {  // Otherwise, the wheels are moving in the same direction
+    // Reverse motors if joystick is pushed backwards
+    if (ps4commands.lStickY < 0) {
+      dirA = false;
+      dirB = false;
+    }  // IF joystick is pushed vertically
+    speedA = speedB = map(abs(ps4commands.lStickY), JOYSTICK_DEADZONE, JOYSTICK_MAX_VALUE, MOTOR_MIN_VALUE, MOTOR_MAX_VALUE);
+    // IF joystick is pushed vertically only, leave the wheel speeds untouched
+    if (abs(ps4commands.lStickX) > JOYSTICK_DEADZONE) {
+      // If not then adjust the speed of one of the wheels
+      uint8_t turnRate = map(abs(ps4commands.lStickX), JOYSTICK_DEADZONE, JOYSTICK_MAX_VALUE, MIN_TURN_RATE, MAX_TURN_RATE);
+      if (ps4commands.lStickX < 0) {
+        speedB *= (MAX_TURN_RATE - turnRate) / MAX_TURN_RATE;
+      } else {
+        speedA *= (MAX_TURN_RATE - turnRate) / MAX_TURN_RATE;
+      }
+    }
+  }
+  // Apply output to motors
+  moveWheels(dirA, speedA, dirB, speedB, enabMotor);
+}
 
 void setup() {
   Serial.begin(BAUD_RATE);
@@ -104,18 +154,6 @@ void loop() {
 
   if (cmdRECV) {
     cmdRECV = false;
-    bool dirA = true, dirB = true, enabMotor = true;
-    uint8_t speedA = 0, speedB = 0;
-    if (ps4commands.lStickY < 0) {
-      dirA = false;
-      dirB = false;
-    }
-    if (abs(ps4commands.lStickY) > JOYSTICK_DRIFT) {
-      speedA = speedB = map(abs(ps4commands.lStickY), 11, 127, 0, 255);
-    } 
-    else {
-      enabMotor = false;
-    }
-    moveWheels(dirA, speedA, dirB, speedB, enabMotor);
+    manageInputs();
   }
 }
