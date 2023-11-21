@@ -37,6 +37,7 @@ def part_5(text: str):
 # print(part_5('voici un petit texte test')) 
 # # Expected output: ???
 
+# adaptation of: https://www.youtube.com/watch?v=W5oawMJaXbU
 def main(stdscr: curses.window):
     if len(sys.argv) < 2:
         return
