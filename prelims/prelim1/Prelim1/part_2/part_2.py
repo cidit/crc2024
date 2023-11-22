@@ -7,7 +7,6 @@ This is the template file for the part 2 of the Prelim 1.
 Ceci est le fichier template pour la partie 2 du Prelim 1.
 """
 
-
 def part_2(text: str, key: int) -> str:
     """
     Decrypts the text with Caesar cypher.
@@ -19,13 +18,6 @@ def part_2(text: str, key: int) -> str:
     Returns:
         str: The decrypted text.
     """
-    from datetime import datetime
-
-    dt = datetime.now()
-    timer_start = dt.microsecond
-    print("Start time : ", timer_start)
-    ### You code goes here ###
-    ### Votre code va ici ###
 
     def over_under_flow(num: int, min: int, max: int) -> int:
         diff = max - min +1
@@ -47,10 +39,6 @@ def part_2(text: str, key: int) -> str:
         return chr(new_ichar)
 
     decrypted_text = "".join([map_char(c, key) if c.isalpha() else c for c in text])
-    dt = datetime.now()
-    timer_stop = dt.microsecond
-    print("Stop time : ", timer_stop)
-    print("Elapsed time: ", timer_stop - timer_start)
     return decrypted_text
 
 

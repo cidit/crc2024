@@ -26,3 +26,19 @@ def test_with_zero():
 
 def test_with_negative():
     assert part_2("Cb jo oiggw o fsqizcbg", -14) == "On va aussi a reculons"
+
+
+
+def timings(functions):
+    import timeit
+    import os
+    if os.getenv("TIMEIT") == "TRUE":
+        print("timings:")
+        for f in functions:
+            time = timeit.timeit(f, number=10_000)
+            print(f"{f.__name__}, {time*1_000}ms")
+timings([
+    test_from_problem_description,
+    test_with_zero,
+    test_with_negative,
+])
