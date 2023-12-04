@@ -33,7 +33,7 @@ def part_1(text: str) -> int:
 # Uncomment the following print to test your function without pytest
 # Décommenter la suite pour des tests sans pytest
 
-print(part_1('ti kzk mab cvm kwuxmbqbqwv bzma|18| ncv'))  # Expected output: 18
-print(part_1('Zcfsa wdgia rczcf gwh oash, qcbgsqhshif orwdwgqwbu szwh. Qfog qifgig dzoqsfoh hcfhcf bsq toqwzwgwg. Bizzoa jsz sfoh zsc. Gigdsbrwggs bcb bwgz sbwa. Aosqsbog oq sfoh sush sfoh gcrozsg hsadig. Bizzo toqwzwgw. Dszzsbhsgeis toqwzwgwg|12| hwbqwribh bibq, dfshwia hwbqwribh rczcf jsbsbohwg wb. Bizzoa woqizwg oqqiagob zsc bcb sttwqwhif. Aosqsbog crwc ofqi, hfwghweis.'))  # Expected output: 12
-print(part_1("ti kzk mab |0|cvm kwuxmbqbqwv bzma ncv"))   # Expected output: 0
-print(part_1("ti kzk mab cvm kwuxm|-7|bqbqwv bzma ncv"))   # Expected output: -7
+#print(part_1('ti kzk mab cvm kwuxmbqbqwv bzma|18| ncv'))  # Expected output: 18
+#print(part_1('Zcfsa wdgia rczcf gwh oash, qcbgsqhshif orwdwgqwbu szwh. Qfog qifgig dzoqsfoh hcfhcf bsq toqwzwgwg. Bizzoa jsz sfoh zsc. Gigdsbrwggs bcb bwgz sbwa. Aosqsbog oq sfoh sush sfoh gcrozsg hsadig. Bizzo toqwzwgw. Dszzsbhsgeis toqwzwgwg|12| hwbqwribh bibq, dfshwia hwbqwribh rczcf jsbsbohwg wb. Bizzoa woqizwg oqqiagob zsc bcb sttwqwhif. Aosqsbog crwc ofqi, hfwghweis.'))  # Expected output: 12
+#print(part_1("ti kzk mab |0|cvm kwuxmbqbqwv bzma ncv"))   # Expected output: 0
+#print(part_1("ti kzk mab cvm kwuxm|-7|bqbqwv bzma ncv"))   # Expected output: -7
