@@ -1,0 +1,59 @@
+#flex{
+  display: flex
+  justify-content: center;
+  align-items: center;
+}
+
+#rcorners1 {
+  border-radius: 40px;
+  background: #73AD21;
+  padding: 30px;
+  text-align: center;
+ 
+}
+#rcorners2 {
+  border-radius: 25px;
+  background: #2177ad;
+  padding: 50px;
+ 
+}
+
+#title {
+  padding: 30px;
+  font-size: 60px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-family:Impact;
+}
+
+#sous-title {
+  font-size: 30px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-family: Impact;
+}
+
+#Bgcolor {
+  background-color:rgb(210, 118, 210);
+  padding: 30px;
+
+}
+
+#colorBg {
+  background-color: rgba(234, 0, 255, 0.5);
+  padding: 30px;
+  font-size: 60px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-family: courier;
+  border-radius: 25px;
+}
+
+#textSz{
+  font-size: 200px;
+}
+
+#center{
+  text-align: right;
+
+}
