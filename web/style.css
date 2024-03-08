@@ -12,6 +12,7 @@
   /* background: #c483ee; */
   margin: 20px;
   text-align: center;
+  cursor: pointer;
 
 }
 
@@ -102,4 +103,13 @@ display:inline ;
 #center {
   text-align: right;
 
+}
+
+.fa-instagram {
+  padding: 20px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
 }
