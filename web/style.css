@@ -8,9 +8,9 @@
 }
 
 .rcorners3 {
-  border-radius: 100px;
+  border-radius: 200px;
   /* background: #c483ee; */
-  margin: 20px;
+  /* margin: 20px; */
   text-align: center;
   cursor: pointer;
 
@@ -112,4 +112,8 @@ display:inline ;
   text-align: center;
   text-decoration: none;
   border-radius: 50%;
+}
+
+.botton-margin{
+  margin: 30px;
 }
