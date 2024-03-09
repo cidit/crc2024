@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <meta charset="UTF-8">
-        <title>My Website</title>
-        <link rel="stylesheet" href="./style.css">
-        <link rel="stylesheet" href="styles.css">
-        <link rel="icon" href="./favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="style.css" type="text/css" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link href="
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <title>My Website</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script>
+        document.("demo").innerHTML = "Hello JavaScript!";
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="
     https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css
     " rel="stylesheet">
 
-        <style>
+    <style>
         body {
             background-color: rgb(210, 118, 210);
         }
@@ -24,77 +27,96 @@
             outline: 1px solid red;
         } */
     </style>
-    </head>
+</head>
 
-    <body>
+<body>
 
-        <div class="flex-row content-around flex-auto text-center">
+    <div class="flex flex-row content-around flex-auto text-center">
 
-            <div>
+        <div class="flex-none">
 
-                <img src="castle.png" alt="chateau" width="200">
+            <img src="castle.png" alt="chateau" width="200">
 
-            </div>
+        </div>
 
-            <div>
+        <div class="grow">
 
-                <h1 id="title">
+            <h1 id="title">
 
-                    LES PRINCESSES DE ANDRÉ-LAURENDEAU!
+                LES PRINCESSES D'ANDRÉ-LAURENDEAU!
 
-                </h1>
-            </div>
+            </h1>
             <div id="sous-title" class="p-4 flex-1">
 
                 <p>
-                    une équipe de feu avec des gens de feux qui pete
-                    le feux dans le feux des gens qui font
-                    la crc avec amour et plein de plaisir!</p>
+                    Le recit de belles princesses ayant trouvé refuge dans le royaume enchanté d'andré-laurendeau</p>
+    
+            </div>
+        </div>
+       
 
+        <div class="flex-none">
+            <img src="castle.png" alt="chateau" width="200">
+        </div>
+
+    </div>
+
+    <!-- -------------------------------------------------------------------------------------------------------------- -->
+
+    <!-- bg-[#2177ad] rounded-full p-20 m-16 text-center hover:shadow-2xl -->
+    <div id="princesse-dropdown"
+        class=" duration-150 ease-in-out hover:-translate-y-1 hover:scale-105 bg-[#2177ad] rounded-3xl text-center hover:shadow-2xl m-16">
+
+        <p id="dropdown-trigger" class="p-10 m-0">
+            LES PRINCESSES DE ANDRÉ-LAURENDEAU!
+        </p>
+
+        <div id="dropdown" class="hidden hover:block -mt-5">
+            <button id="clif-image-dropdown">
+                <img class="rcorners3" src="Clif.jpg" alt="Cliff" width="300">
+            </button>
+
+
+            <h4 title="Aussi appelé Tonton" class="w-min">Clif</h4>
+
+            <div class="hidden" id="clif-dropdown">
+                <h4>Clif est un grand cinéaste...</h4>
+                <div>
+                    <button id="" class=""> button 1</button>
+                    <button> button 2</button>
+                </div>
             </div>
 
-            <div>
-                <img src="castle.png" alt="chateau" width="200"
-                    id="center">
-            </div>
+
+
+
 
         </div>
 
-        <!-- -------------------------------------------------------------------------------------------------------------- -->
+    </div>
 
-        <!-- bg-[#2177ad] rounded-full p-20 m-16 text-center hover:shadow-2xl -->
-        <div
-            class=" duration-150 ease-in-out hover:-translate-y-1 hover:scale-105 bg-[#2177ad] rounded-3xl text-center hover:shadow-2xl m-16">
+    <!-- ------------------------------------------------------------------------------------------------------------------>
 
-            <p id="dropdown-trigger" class="p-10 m-0">
-                LES PRINCESSES DE ANDRÉ-LAURENDEAU!
-            </p>
+    <div
+        class=" duration-150 ease-in-out hover:-translate-y-1 hover:scale-105 bg-[#2177ad] rounded-3xl text-center hover:shadow-2xl m-16">
 
-            <div id="dropdown" class="hidden hover:block -mt-5">
-                <img id="rcorners3" src="Clif.jpg" alt="Cliff" width="300">
-                <h4 title="Aussi appelé Tonton" class="w-min">Clif</h4>
-            </div>
+        <p id="dropdown-trigger" class="p-10 m-0">
+            LES PRINCESSES DE ANDRÉ-LAURENDEAU!
+        </p>
 
-        </div>
-
-        <!-- ------------------------------------------------------------------------------------------------------------------>
-
-        <div
-            class=" duration-150 ease-in-out hover:-translate-y-1 hover:scale-105 bg-[#2177ad] rounded-3xl text-center hover:shadow-2xl m-16">
-
-            <p id="dropdown-trigger" class="p-10 m-0">
-                LES PRINCESSES DE ANDRÉ-LAURENDEAU!
-            </p>
-
-         <div>
+        <div>
             <!-- Add font awesome icons -->
             <button type="submit">
-            <a href="https://www.instagram.com/altech_c.l?igsh=MXZheHl2NTM3bHB2ag==" class="fa-instagram" target="_blank"></a>
+                <a href="https://www.instagram.com/altech_c.l?igsh=MXZheHl2NTM3bHB2ag==" class="fa-instagram"
+                    target="_blank"></a>
             </button>
-          </a>
-         </div>
+            </a>
         </div>
+    </div>
 
-    </body>
+    <script src="main.js">
+
+    </script>
+</body>
 
 </html>
