@@ -78,14 +78,59 @@ Youssefimage.onclick=(event) => {
     Youssefdropdown.style.display=isopenYoussef?"block":"none"
 }
 
-// const princesseDropdown = document.getElementById("princesse-dropdown")
-// let isopenprincesse = false
-// princesseDropdown.onclick=() => {
-//     isopenprincesse = !isopenprincesse
-//     const Dropdown= document.getElementById("dropdown")
 
-//     Dropdown.style.display=isopenprincesse?"block":"none"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Youssefbuttonqualité = document.getElementById("Youssef-qualité")
+let isopenYoussefQualité = false
+Youssefbuttonqualité.onclick=(event) => {
+    event.stopPropagation()
+    isopenYoussefQualité = !isopenYoussefQualité
+    const Youssefdropdownqualité= document.getElementById("Youssef-dropdown-qualité")
+
+    Youssefdropdownqualité.style.display=isopenYoussefQualité?"block":"none"
+}
+const Youssefbuttondefault = document.getElementById("Youssef-défault")
+let isopenYoussefdefault = false
+Youssefbuttondefault.onclick=(event) => {
+    event.stopPropagation()
+    isopenYoussefdefault = !isopenYoussefdefault
+    const Youssefdropdowndefault= document.getElementById("Youssef-dropdown-défault")
+
+    Youssefdropdowndefault.style.display=isopenYoussefdefault?"block":"none"
+}
+
+// const Youssefimage = document.getElementById("Youssef-image-dropdown")
+// let isopenYoussef = false
+// Youssefimage.onclick=(event) => {
+//     event.stopPropagation()
+//     isopenYoussef = !isopenYoussef
+//     const Youssefdropdown= document.getElementById("Youssef-dropdown")
+
+//     Youssefdropdown.style.display=isopenYoussef?"block":"none"
 // }
+
+const princesseDropdown = document.getElementById("princesse-dropdown")
+let isopenprincesse = false
+princesseDropdown.onclick=() => {
+    isopenprincesse = !isopenprincesse
+    const Dropdown= document.getElementById("dropdown")
+
+    Dropdown.style.display=isopenprincesse?"block":"none"
+}
 
 // const ### = document.getElementById("###")
 // let isopen# = false
