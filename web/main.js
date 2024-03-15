@@ -1,116 +1,77 @@
-const clifimage = document.getElementById("clif-image-dropdown")
-let isopencliff = false
-clifimage.onclick=(event) => {
-    event.stopPropagation()
-    isopencliff = !isopencliff
-    const clifdropdown= document.getElementById("clif-dropdown")
+const princesseDropdown2 = document.getElementById("princesse-dropdown2")
+let isopenprincesse2 = false
+princesseDropdown2.onclick = () => {
+    isopenprincesse2 = !isopenprincesse2
+    const Dropdown2 = document.getElementById("dropdown2")
 
-    clifdropdown.style.display=isopencliff?"block":"none"
+    Dropdown2.style.display = isopenprincesse2 ? "block" : "none"
 }
 
-const Alexisimage = document.getElementById("Alexis-image-dropdown")
-let isopenAlexis = false
-Alexisimage.onclick=(event) => {
-    event.stopPropagation()
-    isopenAlexis = !isopenAlexis
-    const Alexisdropdown= document.getElementById("Alexis-dropdown")
 
-    Alexisdropdown.style.display=isopenAlexis?"block":"none"
+const cliffimage2 = document.getElementById("cliff-image-dropdown2")
+let isopencliff2 = false
+cliffimage2.onclick = (event) => {
+    event.stopPropagation()
+    isopencliff2 = !isopencliff2
+    const cliffdropdown2 = document.getElementById("cliff-dropdown2")
+
+    cliffdropdown2.style.display = isopencliff2 ? "block" : "none"
 }
 
-const Féliximage = document.getElementById("Félix-image-dropdown")
-let isopenFélix = false
-Féliximage.onclick=(event) => {
+const Youssefbuttonqualité2 = document.getElementById("Youssef-qualité2")
+let isopenYoussefQualité2 = false
+Youssefbuttonqualité2.onclick = (event) => {
     event.stopPropagation()
-    isopenFélix = !isopenFélix
-    const Félixdropdown= document.getElementById("Félix-dropdown")
+    isopenYoussefQualité2 = !isopenYoussefQualité2
+    const Youssefdropdownqualité2 = document.getElementById("Youssef-dropdown-qualité2")
 
-    Félixdropdown.style.display=isopenFélix?"block":"none"
+    Youssefdropdownqualité2.style.display = isopenYoussefQualité2 ? "block" : "none"
 }
-
-const Guillaumeimage = document.getElementById("Guillaume-image-dropdown")
-let isopenGuillaume = false
-Guillaumeimage.onclick=(event) => {
+const Youssefbuttondefault2 = document.getElementById("Youssef-défault2")
+let isopenYoussefdefault2 = false
+Youssefbuttondefault2.onclick = (event) => {
     event.stopPropagation()
-    isopenGuillaume = !isopenGuillaume
-    const Guillaumedropdown= document.getElementById("Guillaume-dropdown")
+    isopenYoussefdefault2 = !isopenYoussefdefault2
+    const Youssefdropdowndefault2 = document.getElementById("Youssef-dropdown-défault2")
 
-    Guillaumedropdown.style.display=isopenGuillaume?"block":"none"
-}
-
-const Léoimage = document.getElementById("Léo-image-dropdown")
-let isopenLéo = false
-Léoimage.onclick=(event) => {
-    event.stopPropagation()
-    isopenLéo = !isopenLéo
-    const Léodropdown= document.getElementById("Léo-dropdown")
-
-    Léodropdown.style.display=isopenLéo?"block":"none"
-}
-
-const Béaimage = document.getElementById("Béa-image-dropdown")
-let isopenBéa = false
-Béaimage.onclick=(event) => {
-    event.stopPropagation()
-    isopenBéa = !isopenBéa
-    const Béadropdown= document.getElementById("Béa-dropdown")
-
-    Béadropdown.style.display=isopenBéa?"block":"none"
-}
-
-const Raymanaimage = document.getElementById("Raymana-image-dropdown")
-let isopenRaymana = false
-Raymanaimage.onclick=(event) => {
-    event.stopPropagation()
-    isopenRaymana = !isopenRaymana
-    const Raymanadropdown= document.getElementById("Raymana-dropdown")
-
-    Raymanadropdown.style.display=isopenRaymana?"block":"none"
-}
-
-const Youssefimage = document.getElementById("Youssef-image-dropdown")
-let isopenYoussef = false
-Youssefimage.onclick=(event) => {
-    event.stopPropagation()
-    isopenYoussef = !isopenYoussef
-    const Youssefdropdown= document.getElementById("Youssef-dropdown")
-
-    Youssefdropdown.style.display=isopenYoussef?"block":"none"
+    Youssefdropdowndefault2.style.display = isopenYoussefdefault2 ? "block" : "none"
 }
 
 
 
 
 
+const princesseDropdown = document.getElementById("princesse-dropdown")
+const princesseDropdown1 = document.getElementById("dropdown")
+let isopenprincesse = false
+princesseDropdown1 = princesseDropdown.onclick = () => {
+    isopenprincesse = !isopenprincesse
+    const Dropdown = document.getElementById("dropdown")
 
-
-
-
-
-
-
-
-
-
-
-
-const Youssefbuttonqualité = document.getElementById("Youssef-qualité")
-let isopenYoussefQualité = false
-Youssefbuttonqualité.onclick=(event) => {
-    event.stopPropagation()
-    isopenYoussefQualité = !isopenYoussefQualité
-    const Youssefdropdownqualité= document.getElementById("Youssef-dropdown-qualité")
-
-    Youssefdropdownqualité.style.display=isopenYoussefQualité?"block":"none"
+    Dropdown.style.display = isopenprincesse ? "block" : "none"
 }
-const Youssefbuttondefault = document.getElementById("Youssef-défault")
-let isopenYoussefdefault = false
-Youssefbuttondefault.onclick=(event) => {
-    event.stopPropagation()
-    isopenYoussefdefault = !isopenYoussefdefault
-    const Youssefdropdowndefault= document.getElementById("Youssef-dropdown-défault")
 
-    Youssefdropdowndefault.style.display=isopenYoussefdefault?"block":"none"
+
+
+const boxDropdown = document.getElementById("box-dropdown")
+// const boxDropdown1 = document.getElementById("dropdownBox")
+let isopenbox = false
+boxDropdown1 = boxDropdown.onclick = () => {
+    isopenbox = !isopenbox
+    const Dropdown = document.getElementById("dropdownBox")
+
+    Dropdown.style.display = isopenbox ? "block" : "none"
+}
+
+const buttonDropdown = document.getElementById("btn-dropdown")
+// const buttonDropdown1 = document.getElementById("dropdown")
+let isopenbutton = false
+buttonDropdown = buttonDropdown.onclick = (event) => {
+    event.stopPropagation()
+    isopenbutton = !isopenbutton
+    const buttonDropdown = document.getElementById("dropdownbtn")
+
+    buttonDropdown.style.display = isopenbutton ? "block" : "none"
 }
 
 // const Youssefimage = document.getElementById("Youssef-image-dropdown")
@@ -123,14 +84,7 @@ Youssefbuttondefault.onclick=(event) => {
 //     Youssefdropdown.style.display=isopenYoussef?"block":"none"
 // }
 
-const princesseDropdown = document.getElementById("princesse-dropdown")
-let isopenprincesse = false
-princesseDropdown.onclick=() => {
-    isopenprincesse = !isopenprincesse
-    const Dropdown= document.getElementById("dropdown")
 
-    Dropdown.style.display=isopenprincesse?"block":"none"
-}
 
 // const ### = document.getElementById("###")
 // let isopen# = false
@@ -139,4 +93,28 @@ princesseDropdown.onclick=() => {
 //     const Dropdown= document.getElementById("dropdown")
 
 //     Dropdown.style.display=isopenprincesse?"block":"none"
+// }
+
+
+
+
+
+// const princesseDropdown = document.getElementById("princesse-dropdown")
+// const princesseDropdown1 = document.getElementById("dropdown")
+// let isopenprincesse = false
+// princesseDropdown1 = princesseDropdown.onclick = () => {
+//     isopenprincesse = !isopenprincesse
+//     const Dropdown = document.getElementById("dropdown")
+
+//     Dropdown.style.display = isopenprincesse ? "block" : "none"
+// }
+
+// const Youssefimage = document.getElementById("Youssef-image-dropdown")
+// let isopenYoussef = false
+// Youssefimage.onclick=(event) => {
+//     event.stopPropagation()
+//     isopenYoussef = !isopenYoussef
+//     const Youssefdropdown= document.getElementById("Youssef-dropdown")
+
+//     Youssefdropdown.style.display=isopenYoussef?"block":"none"
 // }
