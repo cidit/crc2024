@@ -12,6 +12,8 @@
                 "/Users/mp/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
                 "/Users/mp/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
                 "/Users/mp/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                "/Users/mp/Documents/Arduino/libraries/Crclib",
+                "/Users/mp/Documents",
                 ""
             ],
             "browse": {
@@ -26,6 +28,8 @@
                     "/Users/mp/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
                     "/Users/mp/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
                     "/Users/mp/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                    "/Users/mp/Documents/Arduino/libraries/Crclib",
+                    "/Users/mp/Documents",
                     ""
                 ]
             },
