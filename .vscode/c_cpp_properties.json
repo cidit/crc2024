@@ -1,20 +1,55 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
 {
     "configurations": [
         {
-            "name": "Mac",
+            "name": "PlatformIO",
             "includePath": [
-                "${workspaceFolder}/**",
-                "~/Documents/Arduino/libraries",
-                "/Users/mp/Documents/Arduino/libraries/ArduinoJson/extras/tests/Helpers"
+                "/Users/mp/Documents/PlatformIO/Projects/240316-205553-megaatmega2560/include",
+                "/Users/mp/Documents/PlatformIO/Projects/240316-205553-megaatmega2560/src",
+                "/Users/mp/.platformio/packages/framework-arduino-avr/cores/arduino",
+                "/Users/mp/.platformio/packages/framework-arduino-avr/variants/mega",
+                "/Users/mp/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                "/Users/mp/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                "/Users/mp/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                "/Users/mp/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                "/Users/mp/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                ""
             ],
-            "defines": [],
-            "macFrameworkPath": [
-                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks"
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "/Users/mp/Documents/PlatformIO/Projects/240316-205553-megaatmega2560/include",
+                    "/Users/mp/Documents/PlatformIO/Projects/240316-205553-megaatmega2560/src",
+                    "/Users/mp/.platformio/packages/framework-arduino-avr/cores/arduino",
+                    "/Users/mp/.platformio/packages/framework-arduino-avr/variants/mega",
+                    "/Users/mp/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                    "/Users/mp/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                    "/Users/mp/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                    "/Users/mp/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                    "/Users/mp/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=60113",
+                "ARDUINO_AVR_MEGA2560",
+                "F_CPU=16000000L",
+                "ARDUINO_ARCH_AVR",
+                "ARDUINO=10808",
+                "__AVR_ATmega2560__",
+                ""
             ],
-            "compilerPath": "/usr/bin/clang",
-            "cStandard": "c17",
-            "cppStandard": "c++17",
-            "intelliSenseMode": "macos-clang-x64"
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++11",
+            "compilerPath": "/Users/mp/.platformio/packages/toolchain-atmelavr/bin/avr-gcc",
+            "compilerArgs": [
+                "-mmcu=atmega2560",
+                ""
+            ]
         }
     ],
     "version": 4
