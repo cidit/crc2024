@@ -14,7 +14,10 @@
                 "/Users/mp/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
                 "/Users/mp/Documents/Arduino/libraries/Crclib",
                 "/Users/mp/Documents",
-                ""
+                "",
+                "/Users/mp/Documents/Arduino/libraries/CrcDependency_xbee-arduino-master",
+                "/Users/mp/Documents/Arduino/libraries/Servo/src",
+                "/Users/mp/Documents/Arduino/libraries/Adafruit_NeoPixel"
             ],
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
